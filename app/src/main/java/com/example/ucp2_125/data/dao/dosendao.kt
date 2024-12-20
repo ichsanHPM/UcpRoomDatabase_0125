@@ -1,6 +1,7 @@
 package com.example.ucp2_125.data.dao
 
 import androidx.room.Dao
+import androidx.room.Insert
 import androidx.room.Query
 import com.example.ucp2_125.data.entity.dosen
 import kotlinx.coroutines.flow.Flow
@@ -13,5 +14,10 @@ interface dosendao {
 
     @Query("SELECT * FROM dosen WHERE nidn = :nidn")
     fun getdosen(nidn: String) : Flow<dosen>
+
+    @Insert
+    suspend fun insertdosen(
+        dosen: dosen
+    )
 
 }
